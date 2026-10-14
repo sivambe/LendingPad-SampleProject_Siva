@@ -53,7 +53,7 @@ namespace WebApi
 
             config.Filters.AddRange(new IFilter[]
                                     {
-                                        new ContextInitializeAttribute(), new ValidationExceptionFilterAttribute()
+                                        new ContextInitializeAttribute(), new GlobalExceptionFilterAttribute()
                                     });
         }
     }
