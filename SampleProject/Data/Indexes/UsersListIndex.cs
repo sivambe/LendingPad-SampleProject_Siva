@@ -11,11 +11,12 @@ namespace Data.Indexes
         {
             Map = users => from user in users
                            select new
-                                  {
-                                      user.Name,
-                                      user.Email,
-                                      user.Type
-                                  };
+                           {
+                               user.Name,
+                               user.Email,
+                               user.Type,
+                               Tags = user.Tags
+                           };
 
             Index(x => x.Type, FieldIndexing.NotAnalyzed);
         }

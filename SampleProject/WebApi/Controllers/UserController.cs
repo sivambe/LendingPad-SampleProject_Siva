@@ -28,7 +28,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public HttpResponseMessage CreateUser(Guid userId, [FromBody] UserModel model)
         {
-            var user = _createUserService.Create(userId, model.Name, model.Email, model.Type, model.AnnualSalary, model.Tags);
+            var user = _createUserService.Create(userId, model.Name, model.Email, model.Type, model.Age, model.AnnualSalary, model.Tags);
             return Found(new UserData(user));
         }
 
@@ -41,7 +41,7 @@ namespace WebApi.Controllers
             {
                 return DoesNotExist();
             }
-            _updateUserService.Update(user, model.Name, model.Email, model.Type, model.AnnualSalary, model.Tags);
+            _updateUserService.Update(user, model.Name, model.Email, model.Type, model.Age, model.AnnualSalary, model.Tags);
             return Found(new UserData(user));
         }
 
@@ -68,9 +68,9 @@ namespace WebApi.Controllers
 
         [Route("list")]
         [HttpGet]
-        public HttpResponseMessage GetUsers(int skip, int take, UserTypes? type = null, string name = null, string email = null)
+        public HttpResponseMessage GetUsers(int skip, int take, UserTypes? type = null, string name = null, string email = null, string tag = null)
         {
-            var users = _getUserService.GetUsers(type, name, email)
+            var users = _getUserService.GetUsers(type, name, email, tag)
                                        .Skip(skip).Take(take)
                                        .Select(q => new UserData(q))
                                        .ToList();
@@ -83,13 +83,6 @@ namespace WebApi.Controllers
         {
             _deleteUserService.DeleteAll();
             return Found();
-        }
-
-        [Route("list/tag")]
-        [HttpGet]
-        public HttpResponseMessage GetUsersByTag(string tag)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Web.Http;
-using System.Web.Http.Filters;
-using Common;
+﻿using Common;
 using Core;
 using Data;
 using Newtonsoft.Json;
@@ -9,7 +7,10 @@ using Newtonsoft.Json.Serialization;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
+using System.Web.Http;
+using System.Web.Http.Filters;
 using WebApi.App_Start;
+using WebApi.Filters;
 
 namespace WebApi
 {
@@ -52,7 +53,7 @@ namespace WebApi
 
             config.Filters.AddRange(new IFilter[]
                                     {
-                                        new ContextInitializeAttribute()
+                                        new ContextInitializeAttribute(), new ValidationExceptionFilterAttribute()
                                     });
         }
     }

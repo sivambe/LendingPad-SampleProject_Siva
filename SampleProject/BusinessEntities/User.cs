@@ -60,9 +60,9 @@ namespace BusinessEntities
 
         public void SetEmail(string email)
         {
-            if (string.IsNullOrEmpty(email))
+            if (string.IsNullOrWhiteSpace(email)) //Can add email format validation here if needed
             {
-                throw new ArgumentNullException("Name was not provided.");
+                throw new ArgumentNullException("Email was not provided.");
             }
             _email = email;
         }
@@ -72,14 +72,23 @@ namespace BusinessEntities
             _type = type;
         }
 
-        public void SetAge(int age)
+        public void SetAge(int? age)
         {
-            _email = _name;
+            if(!age.HasValue || age.Value < 0)
+            {
+                throw new ArgumentOutOfRangeException("Age is null or less than zero.");
+            }
+            _age = age.Value;
         }
 
-        public void SetMonthlySalary(decimal? monthlySalary)
+        public void SetMonthlySalary(decimal? annualSalary)
         {
-            _monthlySalary = monthlySalary;
+            if(!annualSalary.HasValue || annualSalary.Value < 0)
+            {
+                throw new ArgumentOutOfRangeException("Annual salary is null or less than zero.");
+            }
+
+            _monthlySalary = annualSalary.Value / 12;
         }
 
         public void SetTags(IEnumerable<string> tags)

@@ -21,11 +21,23 @@ namespace Core.Services.Users
             _updateUserService = updateUserService;
         }
 
-        public User Create(Guid id, string name, string email, UserTypes type, decimal? annualSalary, IEnumerable<string> tags)
+        public User Create(Guid id, string name, string email, UserTypes type, int? age, decimal? annualSalary, IEnumerable<string> tags)
         {
-            var user = _userFactory.Create(id);
-            _updateUserService.Update(user, name, email, type, annualSalary, tags);
+            // Check whether the user already exists in the repository
+            var user = _userRepository.Get(id);
+
+            // If the user does not exist, create a new instance using the factory
+            if (user == null)
+            {
+                user = _userFactory.Create(id);
+            }
+
+            // Update the user using the update service
+            _updateUserService.Update(user, name, email, type, age, annualSalary, tags);
+
+            // Save the user to the repository
             _userRepository.Save(user);
+
             return user;
         }
     }
