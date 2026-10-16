@@ -1,0 +1,545 @@
+{
+  "info": {
+    "_postman_id": "b3aff740-6788-42d2-85b2-e47ce431186e",
+    "name": "LendingPad-SampleProject",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39751367"
+  },
+  "item": [
+    {
+      "name": "Initialize Sample Data",
+      "item": [
+        {
+          "name": "Clear Users",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:49834/users/clear",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "49834",
+              "path": [
+                "users",
+                "clear"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User - John",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"John Smith\",\r\n    \"email\": \"mark@companya.com\",\r\n    \"type\": 2,\r\n    \"age\": 27,\r\n    \"annualSalary\": 72000,\r\n    \"tags\": [\"A\", \"C\", \"D\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:49834/users/1422740e-6426-4c46-8445-3f5274a62424/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "49834",
+              "path": [
+                "users",
+                "1422740e-6426-4c46-8445-3f5274a62424",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User - Mark",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Mark Williams\",\r\n    \"email\": \"mark@companya.com\",\r\n    \"type\": 1,\r\n    \"age\": 35,\r\n    \"annualSalary\": 120000,\r\n    \"tags\": [\"b\", \"c\", \"e\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:49834/users/9422740e-6426-4c46-8445-3f5274a62424/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "49834",
+              "path": [
+                "users",
+                "9422740e-6426-4c46-8445-3f5274a62424",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User - Andy",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Andy\",\r\n    \"email\": \"andy@companya.com\",\r\n    \"type\": 2,\r\n    \"age\": 34,\r\n    \"annualSalary\": 86000,\r\n    \"tags\": [\"D\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:49834/users/8722740e-6426-4c46-8445-3f5274a62424/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "49834",
+              "path": [
+                "users",
+                "8722740e-6426-4c46-8445-3f5274a62424",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "//The exception \"PUT attempted on document 'users/1422740e-6426-4c46-8445-3f5274a62424' using a non current etag\" means that the record with the same ID already exists.\r\n{\r\n    \"name\": \"Mary\",\r\n    \"email\": \"mary@companya.com\",\r\n    \"type\": 1,\r\n    \"age\": 29,\r\n    \"annualSalary\": 80000,\r\n    \"tags\": []\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:49834/users/1422740e-6426-4c46-8445-3f5274a62424/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "49834",
+              "path": [
+                "users",
+                "1422740e-6426-4c46-8445-3f5274a62424",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User - A",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Mark Williams (updated)\",\r\n    \"email\": null,\r\n    \"type\": 2,\r\n    \"age\": 29,\r\n    \"annualSalary\": 80000,\r\n    \"tags\": [\"A\", \"C\", \"D\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:49834/users/9422740e-6426-4c46-8445-3f5274a62424/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "49834",
+              "path": [
+                "users",
+                "9422740e-6426-4c46-8445-3f5274a62424",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User - B",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Mark Williams\",\r\n    \"email\": \"mark@companya.com\",\r\n    \"type\": 1,\r\n    \"age\": 29,\r\n    \"annualSalary\": null,\r\n    \"tags\": [\"A\", \"C\", \"D\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:49834/users/9422740e-6426-4c46-8445-3f5274a62424/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "49834",
+              "path": [
+                "users",
+                "9422740e-6426-4c46-8445-3f5274a62424",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User - C",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Mark Williams\",\r\n    \"email\": \"mark@companya.com\",\r\n    \"type\": 1,\r\n    \"age\": 29,\r\n    \"annualSalary\": 152000,\r\n    \"tags\": null\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:49834/users/9422740e-6426-4c46-8445-3f5274a62424/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "49834",
+              "path": [
+                "users",
+                "9422740e-6426-4c46-8445-3f5274a62424",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Users By Tag",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:49834/users/list/tag?tag=C",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "49834",
+              "path": [
+                "users",
+                "list",
+                "tag"
+              ],
+              "query": [
+                {
+                  "key": "tag",
+                  "value": "C"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Requests",
+      "item": [
+        {
+          "name": "Products",
+          "item": [
+            {
+              "name": "Initialize",
+              "item": [
+                {
+                  "name": "Clear All Products",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": ""
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Create Product - Desk",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"name\": \"Desk\",\r\n    \"sku\": \"TK-1\",\r\n    \"price\": 250.00,\r\n    \"stockQuantity\": 250\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/products/2422740e-6426-4c46-8445-3f5274a62424/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "products",
+                        "2422740e-6426-4c46-8445-3f5274a62424",
+                        "create"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Create Product - Table",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n    \"name\": \"Table\",\r\n    \"sku\": \"TL-1\",\r\n    \"price\": 150.00,\r\n    \"stockQuantity\": 100\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/products/6622740e-6426-4c46-8445-3f5274a62433/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "products",
+                        "6622740e-6426-4c46-8445-3f5274a62433",
+                        "create"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Get Products",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/products?skip=0&take=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "desk",
+                      "disabled": true
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Product - Desk",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Desk\",\r\n    \"sku\": \"TK-1\",\r\n    \"price\": 240.00,\r\n    \"stockQuantity\": 240\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/products/2422740e-6426-4c46-8445-3f5274a62424/update",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "products",
+                    "2422740e-6426-4c46-8445-3f5274a62424",
+                    "update"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Product - Desk",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Orders",
+          "item": [
+            {
+              "name": "Initialize",
+              "item": [
+                {
+                  "name": "Clear All Orders",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": ""
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Create Order - A",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"customerID\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"customerName\": \"John Doe\",\r\n  \"items\": [\r\n    {\r\n      \"productId\": \"2422740e-6426-4c46-8445-3f5274a62424\",\r\n      \"ProductName\": \"Desk\",\r\n      \"quantity\": 2,\r\n      \"price\": 250.00\r\n    }\r\n  ]\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/3522740e-6426-4c46-8445-3f5274a62413/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        "3522740e-6426-4c46-8445-3f5274a62413",
+                        "create"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Create Order - B",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"customerID\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\r\n  \"customerName\": \"John Doe\",\r\n  \"items\": [\r\n    {\r\n      \"productId\": \"2422740e-6426-4c46-8445-3f5274a62424\",\r\n      \"ProductName\": \"Desk\",\r\n      \"quantity\": 2,\r\n      \"price\": 250.00\r\n    }\r\n  ]\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/3522740e-6426-4c46-8445-3f5274a62413/create",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        "3522740e-6426-4c46-8445-3f5274a62413",
+                        "create"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Get Orders",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/orders?skip=0&take=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "take",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Order",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": ""
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
