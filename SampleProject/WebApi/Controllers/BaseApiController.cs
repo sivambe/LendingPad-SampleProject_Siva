@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 
 namespace WebApi.Controllers
 {
@@ -19,6 +20,11 @@ namespace WebApi.Controllers
         public HttpResponseMessage DoesNotExist()
         {
             return ControllerContext.Request.CreateResponse(HttpStatusCode.NotFound);
+        }
+
+        public HttpResponseMessage BadDataRequest(ModelStateDictionary modelState)
+        {
+            return ControllerContext.Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }

@@ -12,13 +12,13 @@ namespace BusinessEntities
             private set => _name = value;
         }
 
-        public void SetName(string name)
+        public IdNameObject(Guid id, string name) : base()
         {
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrWhiteSpace(name))
             {
-                throw new ArgumentNullException("Name was not provided.");
+                throw new ArgumentException("Name cannot be empty.");
             }
-            _name = name;
+            Name = name;
         }
     }
 }

@@ -1,22 +1,27 @@
-﻿using System;
+﻿using Common.Extensions;
+using System;
 using System.Collections.Generic;
-using Common.Extensions;
+using System.Xml.Linq;
 
 namespace BusinessEntities
 {
     public class User : IdObject
     {
+        private string _name;
         private readonly List<string> _tags = new List<string>();
         private int _age;
         private string _email;
         private decimal? _monthlySalary;
-        private string _name;
+        //private string _name;
         private UserTypes _type = UserTypes.Employee;
 
-        public string Email
+        public void SetName(string name)
         {
-            get => _email;
-            private set => _email = value;
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentNullException("Name was not provided.");
+            }
+            _name = name;
         }
 
         public string Name
@@ -24,6 +29,18 @@ namespace BusinessEntities
             get => _name;
             private set => _name = value;
         }
+
+        public string Email
+        {
+            get => _email;
+            private set => _email = value;
+        }
+
+        //public string Name
+        //{
+        //    get => _name;
+        //    private set => _name = value;
+        //}
 
         public UserTypes Type
         {
@@ -49,14 +66,14 @@ namespace BusinessEntities
             private set => _tags.Initialize(value);
         }
 
-        public void SetName(string name)
-        {
-            if (string.IsNullOrEmpty(name))
-            {
-                throw new ArgumentNullException("Name was not provided.");
-            }
-            _name = name;
-        }
+        //public void SetName(string name)
+        //{
+        //    if (string.IsNullOrEmpty(name))
+        //    {
+        //        throw new ArgumentNullException("Name was not provided.");
+        //    }
+        //    _name = name;
+        //}
 
         public void SetEmail(string email)
         {

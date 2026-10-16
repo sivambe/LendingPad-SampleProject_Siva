@@ -16,15 +16,6 @@ namespace BusinessEntities
             private set => _name = value;
         }
 
-        public void SetName(string name)
-        {
-            if (string.IsNullOrEmpty(name))
-            {
-                throw new ArgumentNullException("Name was not provided.");
-            }
-            _name = name;
-        }
-
         public void SetMembers(IEnumerable<User> members)
         {
             _members.Initialize(members.Where(q => q.Type == UserTypes.Employee));
